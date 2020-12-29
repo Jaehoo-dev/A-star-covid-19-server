@@ -1,4 +1,4 @@
-import express, { Application, Request, Response, NextFunction, Errback } from 'express';
+import express, { Application, Request, Response, NextFunction } from 'express';
 import createError from 'http-errors';
 import logger from 'morgan';
 import cors from 'cors';
