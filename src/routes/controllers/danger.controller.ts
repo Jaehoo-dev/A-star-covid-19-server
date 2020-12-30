@@ -4,7 +4,7 @@ import { NUMBER_OF_ROWS, NUMBER_OF_COLUMNS } from '../../constants/numbers';
 
 export const getDangerLocations = (req: Request, res: Response, next: NextFunction) => {
   const dangerLocations: number[] = [];
-  const numberOfDangerLocations = Math.floor(Math.random() * 3) + 1;
+  const numberOfDangerLocations = Math.floor(Math.random() * 5) + 1;
 
   for (let i = 0; i < numberOfDangerLocations; i++) {
     dangerLocations.push(generateDangerLocations(NUMBER_OF_ROWS * NUMBER_OF_COLUMNS));
