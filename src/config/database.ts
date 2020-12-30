@@ -1,6 +1,8 @@
 import { Sequelize } from 'sequelize';
 
-const sequelize = new Sequelize('astar-covid19', 'postgres', '1234', {
+const env = process.env;
+
+const sequelize = new Sequelize(env.DATABASE!, env.USERNAME!, env.PASSWORD!, {
   host: 'localhost',
   dialect: 'postgres',
 
