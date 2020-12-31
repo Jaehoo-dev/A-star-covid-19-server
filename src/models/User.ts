@@ -9,7 +9,7 @@ import History from './History';
 export default class User extends Model {
   public email!: string;
   public static associations: {
-    historys: Association<User, History>;
+    histories: Association<User, History>;
   };
 }
 

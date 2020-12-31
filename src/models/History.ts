@@ -33,7 +33,7 @@ History.init(
     },
   },
   {
-    tableName: 'historys',
+    tableName: 'histories',
     sequelize,
   }
 );
