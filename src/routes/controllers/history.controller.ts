@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import sequelize from '../../config/database';
+import { RESPONSE_RESULT } from '../../constants';
 
 export const getHistories = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -7,7 +8,7 @@ export const getHistories = async (req: Request, res: Response, next: NextFuncti
     const histories = await user.getHistories();
 
     res.status(200).json({
-      result: 'ok',
+      result: RESPONSE_RESULT.OK,
       histories,
     });
   } catch (err) {
@@ -33,7 +34,7 @@ export const updateHistories = async (req: Request, res: Response, next: NextFun
       await t.commit();
 
       res.status(200).json({
-        result: 'ok',
+        result: RESPONSE_RESULT.OK,
       });
 
       return;
@@ -59,7 +60,7 @@ export const updateHistories = async (req: Request, res: Response, next: NextFun
     await t.commit();
 
     res.status(200).json({
-      result: 'ok',
+      result: RESPONSE_RESULT.OK,
     });
   } catch (err) {
     await t.rollback();
