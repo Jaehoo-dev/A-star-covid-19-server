@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { User } from '../../models';
 import { decode } from '../../utils/jwt';
+import { RESPONSE_RESULT } from '../../constants';
 
 const verifyToken = async (req: Request, res: Response, next: NextFunction) => {
   const token = req.headers.authorization!.split(' ')[1];
@@ -9,7 +10,7 @@ const verifyToken = async (req: Request, res: Response, next: NextFunction) => {
 
   if (!user) {
     res.status(404).json({
-      result: 'failure',
+      result: RESPONSE_RESULT.FAILURE,
       message: 'User not found',
     });
 
