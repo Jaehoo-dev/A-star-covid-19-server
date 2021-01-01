@@ -1,5 +1,7 @@
 import dotenv from 'dotenv';
-dotenv.config();
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config();
+}
 
 import express, { Application, Request, Response, NextFunction } from 'express';
 import createError from 'http-errors';
