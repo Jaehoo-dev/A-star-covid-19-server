@@ -13,7 +13,7 @@ export const signInUser = async (req: Request, res: Response, next: NextFunction
 
     const token = encode(user);
 
-    res.status(created ? 201 : 200).json({
+    return res.status(created ? 201 : 200).json({
       result: RESPONSE_RESULT.OK,
       user,
       token,

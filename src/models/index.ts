@@ -94,6 +94,3 @@ User.hasMany(History, {
   as: 'histories',
   onDelete: 'cascade',
 });
-
-User.sync({ force: false });
-History.sync({ force: false });
