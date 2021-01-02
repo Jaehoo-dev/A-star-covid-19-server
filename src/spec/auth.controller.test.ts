@@ -1,20 +1,21 @@
 import request from 'supertest';
 import app from '../app';
 import { User } from '../models';
-import dropAllTables from '../utils/dropAllTables';
+import initializeAllTables from '../utils/initializeAllTables';
 
 beforeAll(() => {
-  return dropAllTables();
+  return initializeAllTables();
 });
 
 afterAll(() => {
-  return dropAllTables();
+  return initializeAllTables();
 });
 
 describe('POST /login', () => {
-  it('should have no users initially', async () => {
+  test('should have no users initially', async done => {
     const users = await User.findAll();
     expect(users).toHaveLength(0);
+    done();
   });
 
   it('should create user when no user is found with email', done => {

@@ -8,7 +8,7 @@ export const getUserByToken = async (req: Request, res: Response, next: NextFunc
   const decoded = decode(token);
 
   try {
-    const user = await User.findByPk(decoded.email);
+    const user = await User.findByPk(decoded?.email);
 
     if (!user) {
       res.status(404).json({

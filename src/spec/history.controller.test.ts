@@ -1,6 +1,6 @@
 import request from 'supertest';
 import app from '../app';
-import dropAllTables from '../utils/dropAllTables';
+import initializeAllTables from '../utils/initializeAllTables';
 import { User, History } from '../models';
 import { encode } from '../utils/jwt';
 import { RESPONSE_RESULT } from '../constants';
@@ -8,11 +8,11 @@ import { RESPONSE_RESULT } from '../constants';
 const fakeToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJhbmRvbUBtYWlsLmNvbSJ9.kjcKCtWwUwL60ajW4bb7uNhq8n5fOBRkOUiTpp_cui4';
 
 beforeAll(() => {
-  return dropAllTables();
+  return initializeAllTables();
 });
 
 afterAll(() => {
-  return dropAllTables();
+  return initializeAllTables();
 });
 
 describe('POST /histories/new', () => {

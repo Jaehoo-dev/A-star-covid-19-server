@@ -2,7 +2,7 @@ import request from 'supertest';
 import app from '../app';
 
 describe('GET /dangers', () => {
-  it('should respond with danger locations', async done => {
+  it('should respond with danger locations', done => {
     request(app)
       .get('/dangers')
       .expect(200)
@@ -14,7 +14,7 @@ describe('GET /dangers', () => {
       });
   });
 
-  it('should return danger locations of length between 3 and 7', async done => {
+  it('should return danger locations of length between 3 and 7', done => {
     for (let i = 0; i < 10; i++) {
       request(app)
         .get('/dangers')
