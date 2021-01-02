@@ -1,6 +1,6 @@
 import request from 'supertest';
 import app from '../app';
-import { User, History } from '../models';
+import { User } from '../models';
 import initializeAllTables from '../utils/initializeAllTables';
 import { RESPONSE_RESULT } from '../constants';
 import { encode } from '../utils/jwt';
