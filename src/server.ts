@@ -12,7 +12,7 @@ const port: string | number
     ? process.env.TEST_PORT!
     : process.env.PORT || '8080';
 const server: http.Server = http.createServer(app);
-console.log('server runs!!');
+
 server.listen(port, async () => {
   console.log(`server listening on port ${port}..`);
 

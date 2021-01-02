@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/server.js",
-    "dev": "NODE_ENV=development nodemon src/server.ts",
+    "prebuild": "rimraf dist",
     "build": "tsc -p .",
+    "dev": "NODE_ENV=development nodemon src/server.ts",
+    "start": "node dist/server.js",
     "test": "jest"
   },
   "author": "",

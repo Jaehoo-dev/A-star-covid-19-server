@@ -1,7 +1,7 @@
 import request from 'supertest';
 import app from '../app';
 import { User } from '../models';
-import sequelize from '../config/database';
+import dropAllTables from '../utils/dropAllTables';
 
 beforeAll(() => {
   return dropAllTables();
@@ -47,7 +47,3 @@ describe('POST /login', () => {
       });
   });
 });
-
-async function dropAllTables() {
-  await sequelize.sync({ force: true });
-}

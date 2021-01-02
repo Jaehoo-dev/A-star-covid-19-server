@@ -59,7 +59,7 @@ export const updateHistories = async (req: Request, res: Response, next: NextFun
 
     await t.commit();
 
-    res.status(200).json({
+    res.status(201).json({
       result: RESPONSE_RESULT.OK,
     });
   } catch (err) {
