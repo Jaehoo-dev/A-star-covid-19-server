@@ -85,6 +85,7 @@ User.init(
   {
     tableName: 'users',
     sequelize,
+    timestamps: false,
   }
 );
 
@@ -95,5 +96,7 @@ User.hasMany(History, {
   onDelete: 'cascade',
 });
 
-User.sync({ force: false });
-History.sync({ force: false });
+if (process.env.NODE_ENV !== 'test') {
+  User.sync({ force: false });
+  History.sync({ force: false });
+}
