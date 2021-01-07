@@ -3,6 +3,6 @@ import { getUserByToken } from './controllers/user.controller';
 
 const router: Router = Router();
 
-router.get('/by_token', getUserByToken);
+router.get('/by-token', getUserByToken);
 
 export default router;
