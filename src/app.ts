@@ -15,12 +15,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 app.use('/', indexRouter);
-app.get('/', (req, res) => {
-  res.json({
-    result: 'ok',
-    message: 'deployed',
-  });
-});
 
 app.use((req: Request, res: Response, next: NextFunction) => {
   next(createError(404, 'not found'));
