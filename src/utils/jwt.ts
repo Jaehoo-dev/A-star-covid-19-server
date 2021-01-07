@@ -11,5 +11,9 @@ export function decode(token: string): any {
   return jwt.verify(
     token,
     process.env.JWT_SECRET_KEY!,
+    (err, decoded) => {
+      if (err || !decoded) return;
+      return decoded;
+    }
   );
 }

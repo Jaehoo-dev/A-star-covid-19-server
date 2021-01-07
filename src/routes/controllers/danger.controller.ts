@@ -1,17 +1,19 @@
 import { Request, Response, NextFunction } from 'express';
 import generateDangerLocations from '../../utils/generateDangerLocation';
-import { NUMBER_OF_ROWS, NUMBER_OF_COLUMNS } from '../../constants/numbers';
+import { RESPONSE_RESULT } from '../../constants';
+import { NUMBER } from '../../constants';
 
 export const getDangerLocations = (req: Request, res: Response, next: NextFunction) => {
   const dangerLocations: number[] = [];
-  const numberOfDangerLocations = Math.floor(Math.random() * 5) + 3;
+
+  const numberOfDangerLocations = Math.floor(Math.random() * NUMBER.DANGERS) + NUMBER.DANGERS_OFFSET;
 
   for (let i = 0; i < numberOfDangerLocations; i++) {
-    dangerLocations.push(generateDangerLocations(NUMBER_OF_ROWS * NUMBER_OF_COLUMNS));
+    dangerLocations.push(generateDangerLocations(NUMBER.ROWS * NUMBER.COLUMNS));
   }
 
   res.status(200).json({
-    result: 'ok',
+    result: RESPONSE_RESULT.OK,
     dangerLocations,
   });
 };
